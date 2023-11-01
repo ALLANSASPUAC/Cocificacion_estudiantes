@@ -1,0 +1,42 @@
+#include <iostream>
+#include <string>
+
+class Estudiante {
+public:
+    Estudiante() {}
+
+    void ingresarDatos() {
+        std::cout << "Ingrese el carnet: ";
+        std::cin >> carnet_;
+
+        std::cout << "Ingrese el nombre: ";
+        std::cin.ignore();
+        std::getline(std::cin, nombre_);
+
+        std::cout << "Ingrese los apellidos: ";
+        std::getline(std::cin, apellidos_);
+    }
+
+    void mostrarDatos() const {
+        std::cout << "Carnet: " << carnet_ << std::endl;
+        std::cout << "Nombre: " << nombre_ << std::endl;
+        std::cout << "Apellidos: " << apellidos_ << std::endl;
+    }
+
+private:
+    int carnet_;
+    std::string nombre_;
+    std::string apellidos_;
+};
+
+int main() {
+    Estudiante estudiante1;
+
+    std::cout << "Ingrese los datos del estudiante:" << std::endl;
+    estudiante1.ingresarDatos();
+
+    std::cout << "\nDatos del estudiante:" << std::endl;
+    estudiante1.mostrarDatos();
+
+    return 0;
+}
